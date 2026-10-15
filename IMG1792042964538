@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+<meta name="description" content="Gian Padayao — Computer Science Student Portfolio. Catanduanes State University.">
+<title>Gian Padayao — Student Portfolio</title>
+<style>
+:root{
+  --bg:#0f172a;
+  --bg-alt:#1e293b;
+  --card:#1e293b;
+  --accent:#38bdf8;
+  --accent-2:#8b5cf6;
+  --text:#f1f5f9;
+  --muted:#94a3b8;
+  --border:#334155;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Segoe UI',sans-serif;
+  background:linear-gradient(135deg,#0f172a 0%,#1e1b4b 100%);
+  color:var(--text);
+  line-height:1.7;
+  min-height:100vh;
+}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+
+.container{max-width:1100px;margin:0 auto;padding:0 24px}
+
+/* Header */
+header{
+  position:sticky;top:0;z-index:100;
+  background:rgba(15,23,42,.85);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+}
+.nav-wrap{display:flex;justify-content:space-between;align-items:center;padding:18px 0}
+.logo{font-size:24px;font-weight:800;background:linear-gradient(90deg,var(--accent),var(--accent-2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{color:var(--muted);font-weight:500}
+.nav-links a:hover{color:var(--accent)}
+
+/* Hero */
+.hero{padding:100px 0 80px;text-align:center}
+.hero h1{font-size:clamp(40px,6vw,64px);margin-bottom:16px}
+.hero h1 span{background:linear-gradient(90deg,var(--accent),var(--accent-2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{font-size:20px;color:var(--muted);max-width:600px;margin:0 auto 32px}
+.btn{display:inline-block;padding:14px 32px;border-radius:10px;font-weight:600;margin:8px;border:none;cursor:pointer}
+.btn-primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#fff}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(56,189,248,.25)}
+.btn-outline{border:2px solid var(--accent);color:var(--accent);background:transparent}
+
+/* Sections */
+section{padding:80px 0}
+.section-title{font-size:36px;text-align:center;margin-bottom:48px}
+.section-title span{color:var(--accent)}
+
+/* About */
+.about-card{background:var(--card);padding:32px;border-radius:16px;border:1px solid var(--border);max-width:800px;margin:0 auto}
+.about-card h3{color:var(--accent);margin-bottom:16px;font-size:24px}
+.about-card p{color:var(--muted);margin-bottom:12px;font-size:16px}
+
+/* Skills */
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px}
+.skill-card{background:var(--card);padding:28px;border-radius:16px;border:1px solid var(--border);transition:all .3s ease}
+.skill-card:hover{border-color:var(--accent);transform:translateY(-5px)}
+.skill-card h3{font-size:20px;margin-bottom:12px}
+.skill-card p{color:var(--muted);font-size:14px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.tag{padding:6px 12px;background:rgba(56,189,248,.1);color:var(--accent);border-radius:20px;font-size:13px}
+
+/* Projects */
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:28px}
+.project-card{background:var(--card);border-radius:16px;overflow:hidden;border:1px solid var(--border)}
+.project-card:hover{border-color:var(--accent)}
+.project-img{height:180px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;font-size:60px}
+.project-body{padding:24px}
+.project-body h3{font-size:20px;margin-bottom:10px}
+.project-body p{color:var(--muted);font-size:14px;margin-bottom:16px}
+
+/* Contact */
+.contact-wrap{background:var(--card);padding:36px;border-radius:16px;border:1px solid var(--border);max-width:600px;margin:0 auto}
+.contact-item{display:flex;align-items:center;gap:16px;margin-bottom:20px;padding:16px;background:var(--bg-alt);border-radius:10px}
+.contact-icon{font-size:24px}
+.contact-text h4{font-size:16px}
+.contact-text p,.contact-text a{color:var(--muted);font-size:14px}
+
+/* Footer */
+footer{text-align:center;padding:40px 0;color:var(--muted);font-size:14px;border-top:1px solid var(--border)}
+
+/* Responsive */
+@media(max-width:768px){
+  .nav-links{gap:16px}
+  .section-title{font-size:28px}
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <div class="container nav-wrap">
+    <a href="#" class="logo">Gian<span>.</span>Code</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="container">
+    <h1>Hi, I'm <span>Gian Padayao</span> 👋</h1>
+    <p>Computer Science Student at <strong>Catanduanes State University</strong>. Passionate about coding, web development, and building creative solutions.</p>
+    <a href="#projects" class="btn btn-primary">View My Work</a>
+    <a href="#contact" class="btn btn-outline">Get In Touch</a>
+  </div>
+</section>
+
+<!-- About -->
+<section id="about">
+  <div class="container">
+    <h2 class="section-title">About <span>Me</span></h2>
+    <div class="about-card">
+      <h3>🎓 My Journey</h3>
+      <p>I'm <strong>Gian Padayao</strong>, a Computer Science student at Catanduanes State University. My passion for technology started with curiosity — and I'm turning that curiosity into skills, one line of code at a time.</p>
+      <p>I believe in continuous learning. Every challenge is a chance to grow, and every project is a step forward.</p>
+      <p style="margin-top:16px;padding:12px;background:rgba(56,189,248,.08);border-radius:8px;border-left:3px solid var(--accent);font-style:italic;">"Small steps. Steady practice. Something better every day."</p>
+    </div>
+  </div>
+</section>
+
+<!-- Skills -->
+<section id="skills" style="background:rgba(30,41,59,.2)">
+  <div class="container">
+    <h2 class="section-title">My <span>Skills</span></h2>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <h3>⚙️ Programming</h3>
+        <p>Building logic, algorithms, and problem-solving foundations.</p>
+        <div class="tags">
+          <span class="tag">C++</span>
+          <span class="tag">C</span>
+          <span class="tag">OOP</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>🌐 Web Development</h3>
+        <p>Creating responsive, beautiful websites from scratch.</p>
+        <div class="tags">
+          <span class="tag">HTML5</span>
+          <span class="tag">CSS3</span>
+          <span class="tag">JavaScript</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>🧠 Problem Solving</h3>
+        <p>Breaking complex problems into simple, manageable steps.</p>
+        <div class="tags">
+          <span class="tag">Logic</span>
+          <span class="tag">Algorithms</span>
+          <span class="tag">Data Structures</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>📱 Tools</h3>
+        <p>Version control, code editors, and modern development workflows.</p>
+        <div class="tags">
+          <span class="tag">Git</span>
+          <span class="tag">GitHub</span>
+          <span class="tag">VS Code</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Projects -->
+<section id="projects">
+  <div class="container">
+    <h2 class="section-title">My <span>Projects</span></h2>
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-img">🌐</div>
+        <div class="project-body">
+          <h3>Personal Portfolio</h3>
+          <p>A responsive portfolio website built to showcase my journey, skills, and student projects.</p>
+          <div class="tags">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JS</span>
+          </div>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-img" style="background:linear-gradient(135deg,#f97316,#ef4444);">⚙️</div>
+        <div class="project-body">
+          <h3>C++ Applications</h3>
+          <p>Console-based programs including calculators, student systems, and data structure implementations.</p>
+          <div class="tags">
+            <span class="tag">C++</span>
+            <span class="tag">OOP</span>
+          </div>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-img" style="background:linear-gradient(135deg,#22c55e,#10b981);">📊</div>
+        <div class="project-body">
+          <h3>Data Structures</h3>
+          <p>Linked lists, stacks, queues, and sorting algorithms — understanding how data works.</p>
+          <div class="tags">
+            <span class="tag">C++</span>
+            <span class="tag">DSA</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact" style="background:rgba(30,41,59,.2)">
+  <div class="container">
+    <h2 class="section-title">Get In <span>Touch</span></h2>
+    <div class="contact-wrap">
+      <div class="contact-item">
+        <span class="contact-icon">📧</span>
+        <div class="contact-text">
+          <h4>Email</h4>
+          <a href="mailto:gianpadayao91@gmail.com">gianpadayao91@gmail.com</a>
+        </div>
+      </div>
+      <div class="contact-item">
+        <span class="contact-icon">🏫</span>
+        <div class="contact-text">
+          <h4>School</h4>
+          <p>Catanduanes State University</p>
+        </div>
+      </div>
+      <div class="contact-item">
+        <span class="contact-icon">💻</span>
+        <div class="contact-text">
+          <h4>GitHub</h4>
+          <a href="https://github.com/gianpadayao91" target="_blank">github.com/gianpadayao91</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>© 2026 Gian Padayao. Built with 💙 | Computer Science — Catanduanes State University</p>
+</footer>
+
+</body>
+</html>
+You sent
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+<meta name="description" content="Gian Padayao — Computer Science Student Portfolio. Catanduanes State University.">
+<title>Gian Padayao — Student Portfolio</title>
+<style>
+:root{
+  --bg:#0f172a;
+  --bg-alt:#1e293b;
+  --card:#1e293b;
+  --accent:#38bdf8;
+  --accent-2:#8b5cf6;
+  --text:#f1f5f9;
+  --muted:#94a3b8;
+  --border:#334155;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Segoe UI',sans-serif;
+  background:linear-gradient(135deg,#0f172a 0%,#1e1b4b 100%);
+  color:var(--text);
+  line-height:1.7;
+  min-height:100vh;
+}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+
+.container{max-width:1100px;margin:0 auto;padding:0 24px}
+
+/* Header */
+header{
+  position:sticky;top:0;z-index:100;
+  background:rgba(15,23,42,.85);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+}
+.nav-wrap{display:flex;justify-content:space-between;align-items:center;padding:18px 0}
+.logo{font-size:24px;font-weight:800;background:linear-gradient(90deg,var(--accent),var(--accent-2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{color:var(--muted);font-weight:500}
+.nav-links a:hover{color:var(--accent)}
+
+/* Hero */
+.hero{padding:100px 0 80px;text-align:center}
+.hero h1{font-size:clamp(40px,6vw,64px);margin-bottom:16px}
+.hero h1 span{background:linear-gradient(90deg,var(--accent),var(--accent-2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{font-size:20px;color:var(--muted);max-width:600px;margin:0 auto 32px}
+.btn{display:inline-block;padding:14px 32px;border-radius:10px;font-weight:600;margin:8px;border:none;cursor:pointer}
+.btn-primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#fff}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(56,189,248,.25)}
+.btn-outline{border:2px solid var(--accent);color:var(--accent);background:transparent}
+
+/* Sections */
+section{padding:80px 0}
+.section-title{font-size:36px;text-align:center;margin-bottom:48px}
+.section-title span{color:var(--accent)}
+
+/* About */
+.about-card{background:var(--card);padding:32px;border-radius:16px;border:1px solid var(--border);max-width:800px;margin:0 auto}
+.about-card h3{color:var(--accent);margin-bottom:16px;font-size:24px}
+.about-card p{color:var(--muted);margin-bottom:12px;font-size:16px}
+
+/* Skills */
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px}
+.skill-card{background:var(--card);padding:28px;border-radius:16px;border:1px solid var(--border);transition:all .3s ease}
+.skill-card:hover{border-color:var(--accent);transform:translateY(-5px)}
+.skill-card h3{font-size:20px;margin-bottom:12px}
+.skill-card p{color:var(--muted);font-size:14px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.tag{padding:6px 12px;background:rgba(56,189,248,.1);color:var(--accent);border-radius:20px;font-size:13px}
+
+/* Projects */
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:28px}
+.project-card{background:var(--card);border-radius:16px;overflow:hidden;border:1px solid var(--border)}
+.project-card:hover{border-color:var(--accent)}
+.project-img{height:180px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;font-size:60px}
+.project-body{padding:24px}
+.project-body h3{font-size:20px;margin-bottom:10px}
+.project-body p{color:var(--muted);font-size:14px;margin-bottom:16px}
+
+/* Contact */
+.contact-wrap{background:var(--card);padding:36px;border-radius:16px;border:1px solid var(--border);max-width:600px;margin:0 auto}
+.contact-item{display:flex;align-items:center;gap:16px;margin-bottom:20px;padding:16px;background:var(--bg-alt);border-radius:10px}
+.contact-icon{font-size:24px}
+.contact-text h4{font-size:16px}
+.contact-text p,.contact-text a{color:var(--muted);font-size:14px}
+
+/* Footer */
+footer{text-align:center;padding:40px 0;color:var(--muted);font-size:14px;border-top:1px solid var(--border)}
+
+/* Responsive */
+@media(max-width:768px){
+  .nav-links{gap:16px}
+  .section-title{font-size:28px}
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <div class="container nav-wrap">
+    <a href="#" class="logo">Gian<span>.</span>Code</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="container">
+    <h1>Hi, I'm <span>Gian Padayao</span> 👋</h1>
+    <p>Computer Science Student at <strong>Catanduanes State University</strong>. Passionate about coding, web development, and building creative solutions.</p>
+    <a href="#projects" class="btn btn-primary">View My Work</a>
+    <a href="#contact" class="btn btn-outline">Get In Touch</a>
+  </div>
+</section>
+
+<!-- About -->
+<section id="about">
+  <div class="container">
+    <h2 class="section-title">About <span>Me</span></h2>
+    <div class="about-card">
+      <h3>🎓 My Journey</h3>
+      <p>I'm <strong>Gian Padayao</strong>, a Computer Science student at Catanduanes State University. My passion for technology started with curiosity — and I'm turning that curiosity into skills, one line of code at a time.</p>
+      <p>I believe in continuous learning. Every challenge is a chance to grow, and every project is a step forward.</p>
+      <p style="margin-top:16px;padding:12px;background:rgba(56,189,248,.08);border-radius:8px;border-left:3px solid var(--accent);font-style:italic;">"Small steps. Steady practice. Something better every day."</p>
+    </div>
+  </div>
+</section>
+
+<!-- Skills -->
+<section id="skills" style="background:rgba(30,41,59,.2)">
+  <div class="container">
+    <h2 class="section-title">My <span>Skills</span></h2>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <h3>⚙️ Programming</h3>
+        <p>Building logic, algorithms, and problem-solving foundations.</p>
+        <div class="tags">
+          <span class="tag">C++</span>
+          <span class="tag">C</span>
+          <span class="tag">OOP</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>🌐 Web Development</h3>
+        <p>Creating responsive, beautiful websites from scratch.</p>
+        <div class="tags">
+          <span class="tag">HTML5</span>
+          <span class="tag">CSS3</span>
+          <span class="tag">JavaScript</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>🧠 Problem Solving</h3>
+        <p>Breaking complex problems into simple, manageable steps.</p>
+        <div class="tags">
+          <span class="tag">Logic</span>
+          <span class="tag">Algorithms</span>
+          <span class="tag">Data Structures</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>📱 Tools</h3>
+        <p>Version control, code editors, and modern development workflows.</p>
+        <div class="tags">
+          <span class="tag">Git</span>
+          <span class="tag">GitHub</span>
+          <span class="tag">VS Code</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Projects -->
+<section id="projects">
+  <div class="container">
+    <h2 class="section-title">My <span>Projects</span></h2>
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-img">🌐</div>
+        <div class="project-body">
+          <h3>Personal Portfolio</h3>
+          <p>A responsive portfolio website built to showcase my journey, skills, and student projects.</p>
+          <div class="tags">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JS</span>
+          </div>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-img" style="background:linear-gradient(135deg,#f97316,#ef4444);">⚙️</div>
+        <div class="project-body">
+          <h3>C++ Applications</h3>
+          <p>Console-based programs including calculators, student systems, and data structure implementations.</p>
+          <div class="tags">
+            <span class="tag">C++</span>
+            <span class="tag">OOP</span>
+          </div>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-img" style="background:linear-gradient(135deg,#22c55e,#10b981);">📊</div>
+        <div class="project-body">
+          <h3>Data Structures</h3>
+          <p>Linked lists, stacks, queues, and sorting algorithms — understanding how data works.</p>
+          <div class="tags">
+            <span class="tag">C++</span>
+            <span class="tag">DSA</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact" style="background:rgba(30,41,59,.2)">
+  <div class="container">
+    <h2 class="section-title">Get In <span>Touch</span></h2>
+    <div class="contact-wrap">
+      <div class="contact-item">
+        <span class="contact-icon">📧</span>
+        <div class="contact-text">
+          <h4>Email</h4>
+          <a href="mailto:gianpadayao91@gmail.com">gianpadayao91@gmail.com</a>
+        </div>
+      </div>
+      <div class="contact-item">
+        <span class="contact-icon">🏫</span>
+        <div class="contact-text">
+          <h4>School</h4>
+          <p>Catanduanes State University</p>
+        </div>
+      </div>
+      <div class="contact-item">
+        <span class="contact-icon">💻</span>
+        <div class="contact-text">
+          <h4>GitHub</h4>
+          <a href="https://github.com/gianpadayao91" target="_blank">github.com/gianpadayao91</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>© 2026 Gian Padayao. Built with 💙 | Computer Science — Catanduanes State University</p>
+</footer>
+
+</body>
+</html>
+
+
